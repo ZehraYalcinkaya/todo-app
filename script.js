@@ -227,10 +227,10 @@ async function clearCompleted() {
 // Auth Olayları
 // ============================================
 
-// Sekme geçişi
-document.querySelectorAll(".auth-tab").forEach(btn => {
+// Sekme geçişi (data-tab özelliği olan filtre butonları)
+document.querySelectorAll(".filter-btn[data-tab]").forEach(btn => {
   btn.addEventListener("click", () => {
-    document.querySelectorAll(".auth-tab").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".filter-btn[data-tab]").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
     const tab = btn.dataset.tab;
     document.getElementById("login-form").classList.toggle("hidden",    tab !== "login");

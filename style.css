@@ -1,13 +1,12 @@
-/* ============================================
-   RESET & BASE
-   ============================================ */
+/* ─────────────────────────────────────────
+   RESET
+───────────────────────────────────────── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
 .hidden { display: none !important; }
 
-/* ============================================
-   BODY — Bej kareli arka plan
-   ============================================ */
+/* ─────────────────────────────────────────
+   BODY — bej kareli arka plan
+───────────────────────────────────────── */
 body {
   font-family: 'Caveat', cursive;
   min-height: 100vh;
@@ -15,8 +14,8 @@ body {
   background-image:
     linear-gradient(rgba(139,105,55,.22) 1.5px, transparent 1.5px),
     linear-gradient(90deg, rgba(139,105,55,.22) 1.5px, transparent 1.5px),
-    linear-gradient(rgba(139,105,55,.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(139,105,55,.08) 1px, transparent 1px);
+    linear-gradient(rgba(139,105,55,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139,105,55,.07) 1px, transparent 1px);
   background-size: 96px 96px, 96px 96px, 24px 24px, 24px 24px;
   display: flex;
   justify-content: center;
@@ -24,171 +23,28 @@ body {
   padding: 52px 16px 80px;
 }
 
-/* ============================================
-   AUTH EKRANI
-   ============================================ */
-.auth-screen {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.auth-card {
-  background: #fdf9ee;
-  width: 100%;
-  max-width: 420px;
-  border-radius: 4px 4px 6px 6px;
-  border-top: 14px solid #f0e8d0;
-  border-left: 1px solid #e8dcc0;
-  border-right: 1px solid #d4c8a8;
-  border-bottom: 3px solid #c8b890;
-  box-shadow: 0 10px 32px rgba(90,62,30,.35);
-  overflow: hidden;
-  /* Defter çizgileri */
-  background-image: repeating-linear-gradient(
-    to bottom, transparent 0px, transparent 35px,
-    #b8d0ec 35px, #b8d0ec 36px
-  );
-  background-position: 0 110px;
-}
-
-.auth-header {
-  text-align: center;
-  padding: 22px 28px 12px;
-  border-bottom: 2px solid #c8a86c;
-  background: transparent;
-}
-
-.auth-header h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #5a3e22;
-  letter-spacing: 1px;
-}
-
-.auth-subtitle {
-  color: #a08050;
-  font-size: 1.05rem;
-  margin-top: 2px;
-  font-style: italic;
-}
-
-/* Sekmeler */
-.auth-tabs {
-  display: flex;
-  border-bottom: 1.5px solid #d8c8a0;
-}
-
-.auth-tab {
-  flex: 1;
-  background: none;
-  border: none;
-  font-family: 'Caveat', cursive;
-  font-size: 1.15rem;
-  color: #a08050;
-  padding: 10px;
-  cursor: pointer;
-  transition: all .18s;
-  border-bottom: 2.5px solid transparent;
-  margin-bottom: -1.5px;
-}
-
-.auth-tab.active {
-  color: #c87c48;
-  border-bottom-color: #c87c48;
-  font-weight: 700;
-}
-
-/* Formlar */
-.auth-form {
-  padding: 22px 32px 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.field label {
-  font-size: 1rem;
-  color: #8c7050;
-  font-weight: 600;
-}
-
-.field .hint {
-  font-size: .85rem;
-  color: #b09070;
-  font-weight: 400;
-}
-
-.field input {
-  background: transparent;
-  border: none;
-  border-bottom: 2px dashed #a09070;
-  outline: none;
-  font-family: 'Caveat', cursive;
-  font-size: 1.2rem;
-  color: #3a2c18;
-  padding: 5px 4px;
-  caret-color: #c05a5a;
-  transition: border-color .15s;
-}
-
-.field input:focus { border-bottom: 2px solid #c87c48; }
-.field input::placeholder { color: #c0a880; font-style: italic; }
-
-.auth-btn {
-  margin-top: 4px;
-  background: #c87c48;
-  color: #fdf9ee;
-  border: none;
-  border-radius: 4px;
-  font-family: 'Caveat', cursive;
-  font-size: 1.2rem;
-  font-weight: 700;
-  padding: 10px;
-  cursor: pointer;
-  transition: background .18s, transform .1s;
-  box-shadow: 0 2px 6px rgba(140,80,30,.3);
-}
-.auth-btn:hover  { background: #a8622c; }
-.auth-btn:active { transform: translateY(1px); }
-.auth-btn:disabled { background: #c0ad90; cursor: wait; }
-
-.auth-error {
-  color: #c05a5a;
-  font-size: 1rem;
-  min-height: 1.2em;
-  text-align: center;
-}
-
-/* ============================================
-   UYGULAMA EKRANI
-   ============================================ */
+/* Her iki ekran da merkezi flex konteyner */
+#auth-screen,
 #app-screen {
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
 }
 
-/* ============================================
-   NOTEBOOK
-   ============================================ */
+/* ─────────────────────────────────────────
+   NOTEBOOK WRAPPER
+───────────────────────────────────────── */
 .notebook {
   position: relative;
   width: 100%;
-  max-width: 520px;
-  padding-top: 14px;
-  filter: drop-shadow(0 10px 32px rgba(90,62,30,.35));
+  max-width: 500px;
+  padding-top: 14px;          /* spiral için yer */
+  filter: drop-shadow(0 12px 36px rgba(90,60,20,.32));
 }
 
-/* Spiral halkalar */
+/* ─────────────────────────────────────────
+   SPIRAL HALKALAR
+───────────────────────────────────────── */
 .spiral {
   position: absolute;
   top: 0; left: 0; right: 0;
@@ -203,69 +59,78 @@ body {
   border-radius: 50%;
   background: conic-gradient(
     #e8d8b8 0deg, #b09060 80deg,
-    #f0e4c8 150deg, #a07840 230deg, #e8d8b8 360deg
+    #f0e4c8 150deg, #a07840 230deg,
+    #e8d8b8 360deg
   );
   border: 3px solid #7a5c34;
-  box-shadow: inset 0 1px 4px rgba(0,0,0,.3), 0 3px 8px rgba(80,50,20,.35);
+  box-shadow: inset 0 1px 4px rgba(0,0,0,.28), 0 3px 8px rgba(80,50,20,.32);
   position: relative;
   bottom: -12px;
 }
 
-/* Defter sayfası */
+/* ─────────────────────────────────────────
+   DEFTER SAYFASI
+───────────────────────────────────────── */
 .container {
   position: relative;
   background-color: #fdf9ee;
   background-image: repeating-linear-gradient(
     to bottom,
     transparent 0px, transparent 35px,
-    #b8d0ec 35px, #b8d0ec 36px
+    #b8d0ec      35px, #b8d0ec      36px
   );
-  background-position: 0 96px;
+  background-position: 0 90px;   /* başlık alanını çizgisiz bırak */
   border-radius: 2px 2px 4px 4px;
   overflow: hidden;
   z-index: 1;
-  border-top: 14px solid #f0e8d0;
-  border-left: 1px solid #e8dcc0;
-  border-right: 1px solid #d4c8a8;
-  border-bottom: 3px solid #c8b890;
+  border-top:    14px solid #f0e8d0;
+  border-left:    1px solid #e8dcc0;
+  border-right:   1px solid #d4c8a8;
+  border-bottom:  3px solid #c8b890;
 }
 
+/* Kırmızı kenar çizgisi */
 .margin-line {
   position: absolute;
   top: 0; bottom: 0;
-  left: 68px;
+  left: 64px;
   width: 1.5px;
-  background: rgba(220,100,100,.45);
+  background: rgba(210,90,90,.38);
   z-index: 5;
+  pointer-events: none;
 }
 
+/* İçerik — margin çizgisinin sağından başlar */
 .page-content {
-  padding: 16px 28px 28px 80px;
+  padding: 18px 28px 30px 80px;
   position: relative;
   z-index: 2;
 }
 
-/* Üst bar */
-.top-bar {
+/* ─────────────────────────────────────────
+   SAYFA BAŞLIĞI (her iki ekranda aynı)
+───────────────────────────────────────── */
+.page-title {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  margin-left: -52px;
-  margin-bottom: 18px;
-  border-bottom: 2.5px solid #c8a86c;
-  padding-bottom: 10px;
   gap: 8px;
+  margin-left: -52px;          /* margin çizgisini aşıp sol kenara yasla */
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 2.5px solid #c8a86c;
 }
 
-.top-bar h1 {
-  font-size: 2rem;
+.page-title h1 {
+  font-size: 2.1rem;
   font-weight: 700;
   color: #5a3e22;
   letter-spacing: 1px;
   line-height: 1.2;
 }
 
-.user-area {
+/* Kullanıcı chip (sadece todo ekranında) */
+.user-chip {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -273,9 +138,9 @@ body {
 }
 
 #user-email-label {
-  font-size: .9rem;
+  font-size: .88rem;
   color: #9a8060;
-  max-width: 130px;
+  max-width: 140px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -288,56 +153,105 @@ body {
   font-family: 'Caveat', cursive;
   font-size: .95rem;
   color: #8c7050;
-  padding: 2px 10px;
+  padding: 2px 12px;
   cursor: pointer;
   transition: all .18s;
   white-space: nowrap;
 }
 #logout-btn:hover { background: #f0e4cc; color: #5a3e22; }
 
-/* Form */
-.todo-form {
+/* ─────────────────────────────────────────
+   ALAN SATIRLARI (auth + todo ortak)
+   Her satır bir defter çizgisine oturur
+───────────────────────────────────────── */
+.field-row {
   display: flex;
-  gap: 8px;
-  margin-bottom: 18px;
-  align-items: center;
+  align-items: baseline;
+  height: 36px;               /* tam bir defter çizgi aralığı */
+  gap: 10px;
+  margin-bottom: 0;           /* çizgiler zaten aralık veriyor */
 }
 
-#todo-input {
+.field-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #9a8060;
+  white-space: nowrap;
+  min-width: 60px;
+  flex-shrink: 0;
+}
+
+/* ─────────────────────────────────────────
+   ORTAK GİRİŞ ALANI (kâğıda yazıyor hissi)
+───────────────────────────────────────── */
+.line-input {
   flex: 1;
   background: transparent;
   border: none;
-  border-bottom: 2px dashed #a09070;
   outline: none;
   font-family: 'Caveat', cursive;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   color: #3a2c18;
-  padding: 6px 4px;
+  padding: 0 2px;
+  height: 100%;
   caret-color: #c05a5a;
+  border-bottom: 1.5px dashed transparent; /* görünmez — alttaki defter çizgisi var */
+  transition: border-color .15s;
 }
-#todo-input::placeholder { color: #c0a880; font-style: italic; }
-#todo-input:focus { border-bottom: 2px solid #c05a5a; }
+.line-input::placeholder { color: #c0a880; font-style: italic; }
+.line-input:focus        { border-bottom-color: #c87c48; }
 
-.todo-form button {
+/* ─────────────────────────────────────────
+   GÖNDER BUTONU
+───────────────────────────────────────── */
+.submit-btn {
   background: #c87c48;
   color: #fdf9ee;
   border: none;
   border-radius: 4px;
   font-family: 'Caveat', cursive;
-  font-size: 1.1rem;
-  font-weight: 600;
-  padding: 6px 16px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 7px 22px;
   cursor: pointer;
   transition: background .18s, transform .1s;
+  box-shadow: 0 2px 6px rgba(140,80,30,.28);
   white-space: nowrap;
-  box-shadow: 0 2px 5px rgba(140,80,30,.3);
 }
-.todo-form button:hover  { background: #a8622c; }
-.todo-form button:active { transform: translateY(1px); }
-.todo-form button:disabled { background: #c0ad90; cursor: wait; }
+.submit-btn.compact { font-size: 1.05rem; padding: 5px 16px; }
+.submit-btn:hover   { background: #a8622c; }
+.submit-btn:active  { transform: translateY(1px); }
+.submit-btn:disabled{ background: #c0ad90; cursor: wait; }
 
-/* Filtreler */
-.filters { display: flex; gap: 8px; margin-bottom: 16px; }
+/* Alt satır: buton + hata mesajı */
+.form-footer-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.inline-error {
+  font-size: 1rem;
+  color: #c05a5a;
+  min-height: 1.2em;
+}
+
+/* ─────────────────────────────────────────
+   TODO EKLEME SATIRI
+───────────────────────────────────────── */
+.todo-add-row {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+/* ─────────────────────────────────────────
+   FİLTRELER (her iki ekranda aynı pill)
+───────────────────────────────────────── */
+.filters { display: flex; gap: 8px; margin-bottom: 14px; }
 
 .filter-btn {
   background: none;
@@ -346,7 +260,7 @@ body {
   font-family: 'Caveat', cursive;
   font-size: 1.05rem;
   color: #8c7050;
-  padding: 3px 14px;
+  padding: 3px 16px;
   cursor: pointer;
   transition: all .18s;
 }
@@ -355,10 +269,12 @@ body {
   background: #c87c48;
   border-color: #c87c48;
   color: #fdf9ee;
-  box-shadow: 0 2px 5px rgba(140,80,30,.25);
+  box-shadow: 0 2px 6px rgba(140,80,30,.24);
 }
 
-/* Görev listesi */
+/* ─────────────────────────────────────────
+   GÖREV LİSTESİ
+───────────────────────────────────────── */
 .todo-list { list-style: none; min-height: 36px; }
 
 .todo-item {
@@ -371,20 +287,19 @@ body {
 }
 
 @keyframes slideIn {
-  from { opacity: 0; transform: translateX(-8px); }
+  from { opacity: 0; transform: translateX(-6px); }
   to   { opacity: 1; transform: translateX(0); }
 }
 
+/* Özel checkbox */
 .todo-item input[type="checkbox"] {
   appearance: none; -webkit-appearance: none;
   width: 18px; height: 18px;
   border: 2px solid #a09070;
   border-radius: 3px;
-  cursor: pointer;
-  flex-shrink: 0;
-  position: relative;
-  background: transparent;
-  transition: border-color .15s;
+  cursor: pointer; flex-shrink: 0;
+  position: relative; background: transparent;
+  transition: all .15s;
 }
 .todo-item input[type="checkbox"]:checked {
   background: #8ab87a; border-color: #6a9c5a;
@@ -405,7 +320,6 @@ body {
   word-break: break-word;
   line-height: 1;
 }
-
 .todo-item.completed .text {
   text-decoration: line-through;
   text-decoration-color: #c05a5a;
@@ -416,25 +330,26 @@ body {
 .todo-item .delete-btn {
   background: none; border: none;
   color: #c05a5a; font-size: 1.3rem;
-  line-height: 1; cursor: pointer;
-  opacity: .4; padding: 0 4px;
-  transition: opacity .15s;
   font-family: sans-serif;
+  line-height: 1; cursor: pointer;
+  opacity: .35; padding: 0 4px;
+  transition: opacity .15s;
 }
 .todo-item .delete-btn:hover { opacity: 1; }
 
+/* Boş durum */
 .empty {
   height: 72px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.15rem; color: #c0a880; font-style: italic;
+  font-size: 1.1rem; color: #c0a880; font-style: italic;
 }
 
-/* Footer */
+/* Alt bilgi */
 .footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 16px;
+  margin-top: 14px;
   padding-top: 12px;
   border-top: 1px dashed #c8b490;
   font-size: 1rem; color: #9a8060;
@@ -450,22 +365,24 @@ body {
 }
 #clear-completed:hover { color: #8c3030; }
 
-/* Hata banner */
+/* Hata banner (uygulama içi) */
 .error-banner {
   background: #fce8e8; color: #8c3030;
   border: 1.5px dashed #e08080;
   border-radius: 4px;
-  padding: 8px 14px; margin-bottom: 12px;
+  padding: 8px 14px; margin-bottom: 2px;
   font-size: 1rem;
   animation: slideIn .2s ease;
 }
 
-/* Responsive */
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
 @media (max-width: 480px) {
-  body { padding: 32px 8px 60px; }
-  .page-content { padding: 12px 16px 20px 72px; }
-  .top-bar { margin-left: -44px; }
-  .top-bar h1 { font-size: 1.7rem; }
-  .spiral span { width: 20px; height: 20px; }
-  .auth-form { padding: 18px 20px 24px; }
+  body { padding: 28px 8px 60px; }
+  .page-content  { padding: 14px 16px 22px 72px; }
+  .page-title    { margin-left: -44px; }
+  .page-title h1 { font-size: 1.75rem; }
+  .spiral span   { width: 20px; height: 20px; }
+  .field-label   { min-width: 50px; }
 }
