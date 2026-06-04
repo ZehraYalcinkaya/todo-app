@@ -6,47 +6,98 @@
   <title>Yapılacaklar</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Reenie+Beanie&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <div class="notebook">
-    <!-- Spiral halkalar -->
-    <div class="spiral">
-      <span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span><span></span>
-      <span></span><span></span>
-    </div>
+  <!-- ===== AUTH EKRANI ===== -->
+  <div id="auth-screen" class="auth-screen">
+    <div class="auth-card">
+      <div class="auth-header">
+        <h1>📒 Yapılacaklar</h1>
+        <p class="auth-subtitle">Notlarına hoş geldin</p>
+      </div>
 
-    <div class="container">
-      <!-- Kırmızı kenar çizgisi -->
-      <div class="margin-line"></div>
+      <!-- Sekme -->
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-tab="login">Giriş Yap</button>
+        <button class="auth-tab" data-tab="register">Kayıt Ol</button>
+      </div>
 
-      <div class="page-content">
-        <h1>✏️ Yapılacaklar</h1>
-
-        <form id="todo-form" class="todo-form">
-          <input
-            type="text"
-            id="todo-input"
-            placeholder="Buraya yaz…"
-            autocomplete="off"
-          />
-          <button type="submit">+ Ekle</button>
-        </form>
-
-        <div class="filters">
-          <button class="filter-btn active" data-filter="all">Tümü</button>
-          <button class="filter-btn" data-filter="active">Aktif</button>
-          <button class="filter-btn" data-filter="completed">Tamam ✓</button>
+      <!-- Giriş Formu -->
+      <form id="login-form" class="auth-form">
+        <div class="field">
+          <label>E-posta</label>
+          <input type="email" id="login-email" placeholder="ornek@eposta.com" required />
         </div>
+        <div class="field">
+          <label>Şifre</label>
+          <input type="password" id="login-password" placeholder="••••••••" required />
+        </div>
+        <button type="submit" class="auth-btn" id="login-btn">Giriş Yap</button>
+        <p class="auth-error" id="login-error"></p>
+      </form>
 
-        <ul id="todo-list" class="todo-list"></ul>
+      <!-- Kayıt Formu -->
+      <form id="register-form" class="auth-form hidden">
+        <div class="field">
+          <label>E-posta</label>
+          <input type="email" id="reg-email" placeholder="ornek@eposta.com" required />
+        </div>
+        <div class="field">
+          <label>Şifre <span class="hint">(en az 6 karakter)</span></label>
+          <input type="password" id="reg-password" placeholder="••••••••" required minlength="6" />
+        </div>
+        <div class="field">
+          <label>Şifre Tekrar</label>
+          <input type="password" id="reg-password2" placeholder="••••••••" required minlength="6" />
+        </div>
+        <button type="submit" class="auth-btn" id="reg-btn">Kayıt Ol</button>
+        <p class="auth-error" id="reg-error"></p>
+      </form>
+    </div>
+  </div>
 
-        <div class="footer">
-          <span id="item-count">0 görev kaldı</span>
-          <button id="clear-completed">Tamamlananları sil</button>
+  <!-- ===== UYGULAMA EKRANI ===== -->
+  <div id="app-screen" class="hidden">
+    <div class="notebook">
+      <div class="spiral">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span>
+      </div>
+
+      <div class="container">
+        <div class="margin-line"></div>
+
+        <div class="page-content">
+          <!-- Üst bar: başlık + kullanıcı -->
+          <div class="top-bar">
+            <h1>✏️ Yapılacaklar</h1>
+            <div class="user-area">
+              <span id="user-email-label"></span>
+              <button id="logout-btn" title="Çıkış yap">↩ Çıkış</button>
+            </div>
+          </div>
+
+          <form id="todo-form" class="todo-form">
+            <input type="text" id="todo-input" placeholder="Buraya yaz…" autocomplete="off" />
+            <button type="submit">+ Ekle</button>
+          </form>
+
+          <div class="filters">
+            <button class="filter-btn active" data-filter="all">Tümü</button>
+            <button class="filter-btn" data-filter="active">Aktif</button>
+            <button class="filter-btn" data-filter="completed">Tamam ✓</button>
+          </div>
+
+          <ul id="todo-list" class="todo-list"></ul>
+
+          <div class="footer">
+            <span id="item-count">0 görev kaldı</span>
+            <button id="clear-completed">Tamamlananları sil</button>
+          </div>
         </div>
       </div>
     </div>
