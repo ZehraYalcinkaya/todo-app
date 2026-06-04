@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yapılacaklar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Reenie+Beanie&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="notebook">
+    <!-- Spiral halkalar -->
+    <div class="spiral">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span>
+    </div>
+
+    <div class="container">
+      <!-- Kırmızı kenar çizgisi -->
+      <div class="margin-line"></div>
+
+      <div class="page-content">
+        <h1>✏️ Yapılacaklar</h1>
+
+        <form id="todo-form" class="todo-form">
+          <input
+            type="text"
+            id="todo-input"
+            placeholder="Buraya yaz…"
+            autocomplete="off"
+          />
+          <button type="submit">+ Ekle</button>
+        </form>
+
+        <div class="filters">
+          <button class="filter-btn active" data-filter="all">Tümü</button>
+          <button class="filter-btn" data-filter="active">Aktif</button>
+          <button class="filter-btn" data-filter="completed">Tamam ✓</button>
+        </div>
+
+        <ul id="todo-list" class="todo-list"></ul>
+
+        <div class="footer">
+          <span id="item-count">0 görev kaldı</span>
+          <button id="clear-completed">Tamamlananları sil</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
